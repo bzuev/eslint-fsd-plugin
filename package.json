@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-babun4ek-fsd-plugin",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "plugin for poduction project",
   "keywords": [
     "eslint",

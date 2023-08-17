@@ -16,16 +16,32 @@ const rule = require("../../../lib/rules/path-checker"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parserOptions: {ecmaVersion: 6, sourceType: 'module'}
+});
+
 ruleTester.run("path-checker", rule, {
   valid: [
-    // give me some code that won't trigger a warning
+    {
+      filename: "D:\\FULL FRONTEND КУРС\\src\\entities\\Article",
+      code: "import { RatingCard } from '../../model/slice/index.ts';",
+      errors: [],
+    },
   ],
 
   invalid: [
     {
-      code: "false",
-      errors: [{ message: "Fill me in.", type: "Me too" }],
+      filename: "D:\\FULL FRONTEND КУРС\\src\\entities\\Article",
+      code: "import { RatingCard } from '@/entities/Article';",
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+      options: [{
+        alias: '@'
+      }]
     },
+    {
+      filename: "D:\\FULL FRONTEND КУРС\\src\\entities\\Article",
+      code: "import { RatingCard } from 'entities/Article';",
+      errors: [{ message: "В рамках одного слайса все пути должны быть относительными"}],
+    }
   ],
 });

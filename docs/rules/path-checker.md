@@ -1,35 +1,43 @@
-# feature-sliced design relative path checker (`path-checker`)
+# Feature-sliced design relative path checker (`babun4ek-fsd-plugin/path-checker`)
 
-Please describe the origin of the rule here.
+The path-checker rule checks for absolute paths in your project using the FSD methodology. If you use absolute import from the same module within the same module, you will get an error (or a warning, depending on what value for path-checker you use).
 
 ## Rule Details
-
-This rule aims to...
 
 Examples of **incorrect** code for this rule:
 
 ```js
+    import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 
-// fill me in
-
+    // Provided that the import is done inside the Article module
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
+    import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
-// fill me in
-
+    // Provided that the import is done inside the Article module
 ```
 
 ### Options
 
-If there are any options, describe them here. Otherwise, delete this section.
+If you use alias in your imports, then you should pass them as follows:
 
-## When Not To Use It
+```js
+{
+    "rules": {
+        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '{YOUR ALIAS}'}]
+    }
+}
+```
 
-Give a short description of when it would be appropriate to turn off this rule.
+Example:
 
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+```js
+{
+    "rules": {
+        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '@'}]
+    }
+}
+```

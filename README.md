@@ -1,6 +1,6 @@
-# eslint-plugin-feature-sliced-design-plugin
+# eslint-plugin-babun4ek-fsd-plugin
 
-eslint-plugin to check for absolute paths within a single module
+This is an eslint-plugin to check for absolute paths within a single module.
 
 ## Installation
 
@@ -10,20 +10,20 @@ You'll first need to install [ESLint](https://eslint.org/):
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-feature-sliced-design-plugin`:
+Next, install `eslint-plugin-babun4ek-fsd-plugin`:
 
 ```sh
-npm install eslint-plugin-feature-sliced-design-plugin --save-dev
+npm install eslint-plugin-babun4ek-fsd-plugin --save-dev
 ```
 
 ## Usage
 
-Add `feature-sliced-design-plugin` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `eslint-plugin-babun4ek-fsd-plugin` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "feature-sliced-design-plugin"
+        "babun4ek-fsd-plugin"
     ]
 }
 ```
@@ -34,7 +34,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "feature-sliced-design-plugin/rule-name": 2
+        "babun4ek-fsd-plugin/path-checker": "error"
     }
 }
 ```
@@ -42,7 +42,11 @@ Then configure the rules you want to use under the rules section.
 ## Rules
 
 <!-- begin auto-generated rules list -->
-TODO: Run eslint-doc-generator to generate the rules list.
+
+| Name                                       | Description                                 |
+| :----------------------------------------- | :------------------------------------------ |
+| [path-checker](/docs/rules/path-checker.md) | feature-sliced design relative path checker |
+
 <!-- end auto-generated rules list -->
 
 
