@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-babun4ek-fsd-plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "plugin for poduction project",
   "keywords": [
     "eslint",
@@ -34,5 +34,9 @@
   "peerDependencies": {
     "eslint": ">=7"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IvanZuev1996/eslint-fsd-plugin.git"
+  }
 }
