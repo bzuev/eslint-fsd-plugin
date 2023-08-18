@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-babun4ek-fsd-plugin",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "plugin for poduction project",
   "keywords": [
     "eslint",
@@ -18,6 +18,7 @@
     "update:eslint-docs": "eslint-doc-generator"
   },
   "dependencies": {
+    "generator-eslint": "^4.1.5",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {

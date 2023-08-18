@@ -1,5 +1,7 @@
 # Feature-sliced design relative path checker (`babun4ek-fsd-plugin/path-checker`)
 
+<!-- end auto-generated rule header -->
+
 The path-checker rule checks for absolute paths in your project using the FSD methodology. If you use absolute import from the same module within the same module, you will get an error (or a warning, depending on what value for path-checker you use).
 
 ## Rule Details
