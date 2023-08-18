@@ -8,17 +8,17 @@ The rule applies only to the following layers: pages, entities, features, widget
 Examples of **incorrect** code for this rule:
 
 ```js
-    import { types } from '@/entities/Article'; 
-    
-    // The import is made from the public api of the Article layer - this is good 
+    import { types } from '@/entities/Article/model/types/article.ts'
+
+    // The import is NOT made from the public api of the Article layer - this is bad
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-    import { types } from '@/entities/Article/model/types/article.ts'
-
-    // The import is NOT made from the public api of the Article layer - this is bad
+    import { types } from '@/entities/Article'; 
+    
+    // The import is made from the public api of the Article layer - this is good 
 ```
 
 ### Options
