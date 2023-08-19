@@ -23,12 +23,19 @@ Examples of **correct** code for this rule:
 
 ### Options
 
+#### Alias
+
 If you use alias in your imports, then you should pass them as follows:
 
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '{YOUR ALIAS}'}]
+        "babun4ek-fsd-plugin/public-api-imports": [
+            "error", 
+            {
+                alias: '{YOUR ALIAS}'
+            }
+        ]
     }
 }
 ```
@@ -38,7 +45,35 @@ Example:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '@'}]
+        "babun4ek-fsd-plugin/public-api-imports": [
+            "error", 
+            {
+                alias: '@'
+            }
+        ]
+    }
+}
+```
+
+#### TestFilesPatterns
+
+If your project has any test environments to which you need to import any data that may not be in the public api (index.ts file), then you can transfer patterns of text files.
+In this case, files that match at least one transmitted pattern will be ignored by the rule public-api-imports.
+
+You can transfer patterns as follows:
+
+```js
+{
+    "rules": {
+        "babun4ek-fsd-plugin/public-api-imports": [
+            "error", 
+            {
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    ...
+                ]
+            }
+        ]
     }
 }
 ```
