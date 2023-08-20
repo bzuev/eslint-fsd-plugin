@@ -1,4 +1,6 @@
-# Description (`babun4ek-fsd-plugin/public-api-imports`)
+# Desc (`babun4ek-fsd-plugin/public-api-imports`)
+
+<!-- end auto-generated rule header -->
 
 The public-api-import rule prohibits absolute imports not from the public api, that is, the index file.
 The rule applies only to the following layers: pages, entities, features, widgets. Imports of other layers are not processed

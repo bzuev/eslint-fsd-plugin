@@ -43,10 +43,11 @@ Then configure the rules you want to use under the rules section.
 
 <!-- begin auto-generated rules list -->
 
-| Name                                                   | Description                                 |
-| :----------------------------------------------------- | :------------------------------------------ |
-| [path-checker](docs/rules/path-checker.md)             | feature-sliced design relative path checker |
-| [public-api-imports](docs/rules/public-api-imports.md) | FSD public-api-imports checker              |
+| Name                                                         | Description                                 |
+| :----------------------------------------------------------- | :------------------------------------------ |
+| [layer-imports-checker](docs/rules/layer-imports-checker.md) | FSD layers-imports checker                  |
+| [path-checker](docs/rules/path-checker.md)                   | feature-sliced design relative path checker |
+| [public-api-imports](docs/rules/public-api-imports.md)       | FSD public-api-imports checker              |
 
 <!-- end auto-generated rules list -->
 
