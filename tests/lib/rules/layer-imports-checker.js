@@ -60,6 +60,12 @@ ruleTester.run("layer-imports-checker", rule, {
       options: [aliasOptions]
     },
     {
+      filename: "D:\\Nature Projects\\HabrProduction\\config\\babel\\babelRemovePropsPlugin.ts",
+      code: "import {someFiles} from '@/app/providers/file.tsx'",
+      errors: [],
+      options: [aliasOptions]
+    },
+    {
       filename: "D:\\FULL FRONTEND КУРС\\src\\entities\\User\\file.tsx",
       code: "import {StateSchema} from '@/app/providers/StoreProvider'",
       errors: [],
