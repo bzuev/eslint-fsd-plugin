@@ -1,14 +1,3 @@
-/**
- * @fileoverview feature-sliced design relative path checker
- * @author Ivan
- */
-
-
-
-//------------------------------------------------------------------------------
-// Requirements
-//------------------------------------------------------------------------------
-
 const {RuleTester} = require('eslint');
 const rule = require('../../../lib/rules/path-checker');
 

@@ -1,7 +1,5 @@
-
 const {RuleTester} = require('eslint');
 const rule = require('../../../lib/rules/layer-imports-checker');
-
 
 //------------------------------------------------------------------------------
 // Tests
@@ -60,7 +58,7 @@ ruleTester.run('layer-imports-checker', rule, {
             options: [aliasOptions]
         },
         {
-            filename: 'D:\\Nature Projects\\HabrProduction\\config\\babel\\babelRemovePropsPlugin.ts',
+            filename: 'D:\\Nature Projects\\HabrProduction\\src\\config\\babel\\babelRemovePropsPlugin.ts',
             code: 'import {someFiles} from \'@/app/providers/file.tsx\'',
             errors: [],
             options: [aliasOptions]
