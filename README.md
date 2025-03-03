@@ -1,24 +1,24 @@
-# eslint-plugin-babun4ek-fsd-plugin
+# 🎯 Eslint plugin based on FSD
 
-This is an eslint-plugin to check for paths paths according to the methodology FSD.
+An ESLint plugin designed to enforce path conventions based on the Feature-Sliced Design (FSD) methodology.
 
-## Installation
+## 📦 Installation
 
-You'll first need to install [ESLint](https://eslint.org/):
+First, ensure you have [ESLint](https://eslint.org/) installed:
 
 ```sh
 npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-babun4ek-fsd-plugin`:
+Then, install the `eslint-plugin-babun4ek-fsd-plugin` package:
 
 ```sh
 npm install eslint-plugin-babun4ek-fsd-plugin --save-dev
 ```
 
-## Usage
+## ⚙️ Configuration
 
-Add `eslint-plugin-babun4ek-fsd-plugin` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `babun4ek-fsd-plugin` to the `plugins` section of your `.eslintrc` file:
 
 ```json
 {
@@ -28,8 +28,7 @@ Add `eslint-plugin-babun4ek-fsd-plugin` to the plugins section of your `.eslintr
 }
 ```
 
-
-Then configure the rules you want to use under the rules section.
+Then, enable the desired rules in the `rules` section:
 
 ```json
 {
@@ -39,17 +38,10 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
-## Rules
+## 📖 Documentation of available Rules
 
-<!-- begin auto-generated rules list -->
-
-| Name                                                         | Description                                 |
-| :----------------------------------------------------------- | :------------------------------------------ |
-| [layer-imports-checker](docs/rules/layer-imports-checker.md) | FSD layers-imports checker                  |
-| [path-checker](docs/rules/path-checker.md)                   | feature-sliced design relative path checker |
-| [public-api-imports](docs/rules/public-api-imports.md)       | FSD public-api-imports checker              |
-
-<!-- end auto-generated rules list -->
-
-
-
+| Rule Name                                                  | Description                                      |
+|-----------------------------------------------------------|--------------------------------------------------|
+| [layer-imports-checker](docs/rules/layer-imports-checker.md) | Ensures correct layer imports in FSD structure  |
+| [path-checker](docs/rules/path-checker.md)                   | Validates relative paths within FSD components |
+| [public-api-imports](docs/rules/public-api-imports.md)       | Restricts direct imports outside public API     |
