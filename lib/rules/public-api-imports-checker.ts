@@ -14,7 +14,7 @@ export const publicApiImportsCheckerRule = createRule<
 	Pick<PluginOptions, 'alias' | 'testFilesPatterns'>[],
 	'publicApiError' | 'testingPublicApiError'
 >({
-	name: 'public-api-imports-checker',
+	name: 'public-api-checker',
 	meta: {
 		type: 'problem',
 		docs: {
