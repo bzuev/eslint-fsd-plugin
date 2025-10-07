@@ -5,20 +5,20 @@ import {
 	isPathRelative,
 	removeAlias,
 } from '../helpers';
-import { PluginOptions } from '../types';
+import { FsdLayer, PluginOptions } from '../types';
 import { ESLintUtils } from '@typescript-eslint/utils';
 
 const createRule = ESLintUtils.RuleCreator(docsUrl);
 
 export const publicApiImportsCheckerRule = createRule<
-	Pick<PluginOptions, 'alias' | 'testFilesPatterns'>[],
+	Pick<PluginOptions, 'alias' | 'testFilesPatterns' | 'allowedDepthByLayer'>[],
 	'publicApiError' | 'testingPublicApiError'
 >({
 	name: 'public-api-checker',
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'desc',
+			description: 'FSD public api checker',
 		},
 		fixable: 'code',
 		messages: {
@@ -37,14 +37,21 @@ export const publicApiImportsCheckerRule = createRule<
 					testFilesPatterns: {
 						type: 'array',
 					},
+					allowedDepthByLayer: {
+						type: 'object',
+						additionalProperties: { type: 'number' },
+					},
 				},
 			},
 		],
 	},
 	defaultOptions: [{}],
-	create(context) {
-		const options: PluginOptions = context.options[0] ?? {};
-		const { alias = '', testFilesPatterns = [] } = options;
+	create(context, [options]) {
+		const {
+			alias = '',
+			testFilesPatterns = [],
+			allowedDepthByLayer,
+		} = options || {};
 
 		return {
 			ImportDeclaration(node) {
@@ -70,7 +77,8 @@ export const publicApiImportsCheckerRule = createRule<
 					return;
 				}
 
-				const isImportNotFromPublicApi = segments.length > 2;
+				const maxDepth = allowedDepthByLayer?.[layer as FsdLayer] ?? 2;
+				const isImportNotFromPublicApi = segments.length > maxDepth;
 				const isTestingPublicApi =
 					segments[2] === 'testing' && segments.length < 4;
 

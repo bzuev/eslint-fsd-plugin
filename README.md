@@ -42,11 +42,11 @@ Then, enable the desired rules in the `rules` section:
 
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Name                                                         | Description                                 | 🔧  |
-| :----------------------------------------------------------- | :------------------------------------------ | :-- |
-| [layer-imports-checker](docs/rules/layer-imports-checker.md) | desc                                        |     |
-| [path-checker](docs/rules/path-checker.md)                   | feature-sliced design relative path checker | 🔧  |
-| [public-api-checker](docs/rules/public-api-checker.md)       | desc                                        | 🔧  |
+| Name                                                         | Description                | 🔧 |
+| :----------------------------------------------------------- | :------------------------- | :- |
+| [layer-imports-checker](docs/rules/layer-imports-checker.md) | FSD layers imports checker |    |
+| [path-checker](docs/rules/path-checker.md)                   | FSD relative path checker  | 🔧 |
+| [public-api-checker](docs/rules/public-api-checker.md)       | FSD public api checker     | 🔧 |
 
 <!-- end auto-generated rules list -->
 

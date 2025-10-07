@@ -13,4 +13,5 @@ export type PluginOptions = {
 	alias?: string;
 	ignoreImportsPatters?: string[];
 	testFilesPatterns?: string[];
+	allowedDepthByLayer?: Record<FsdLayer, number>;
 };

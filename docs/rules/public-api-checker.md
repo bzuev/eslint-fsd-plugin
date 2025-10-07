@@ -1,4 +1,4 @@
-# Desc (`fsd-core/public-api-checker`)
+# FSD public api checker (`fsd-core/public-api-checker`)
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
@@ -32,31 +32,13 @@ import { types } from '@/entities/Article';
 If you use alias in your imports, then you should pass them as follows:
 
 ```js
-{
-    "rules": {
-        "fsd-core/public-api-imports": [
-            "error",
-            {
-                alias: '{YOUR ALIAS}'
-            }
-        ]
+// rules section
+"fsd-core/public-api-imports": [
+    "error",
+    {
+        alias: '{YOUR ALIAS} e.g "@"'
     }
-}
-```
-
-Example:
-
-```js
-{
-    "rules": {
-        "fsd-core/public-api-imports": [
-            "error",
-            {
-                alias: '@'
-            }
-        ]
-    }
-}
+]
 ```
 
 #### TestFilesPatterns
@@ -67,17 +49,44 @@ In this case, files that match at least one transmitted pattern will be ignored 
 You can transfer patterns as follows:
 
 ```js
-{
-    "rules": {
-        "fsd-core/public-api-imports": [
-            "error",
-            {
-                testFilesPatterns: [
-                    '**/*.test.*',
-                    ...
-                ]
-            }
+// rules section
+"fsd-core/public-api-imports": [
+    "error",
+    {
+        testFilesPatterns: [
+            '**/*.test.*',
+            ...
         ]
     }
-}
+]
 ```
+
+#### AllowedDepthByLayer
+
+In some cases, you may want to allow deeper imports for specific layers of your project.
+For example, in large projects, you might group multiple features under entities (e.g., `features/Article/ArticleSwitch`).
+To make such imports valid, you can configure allowedDepthByLayer in the rule options.
+
+This option allows you to define how deep the import path can go for each layer before it is considered a violation of the public API rule.
+
+You can configure it like this:
+
+```js
+// rules section
+"fsd-core/public-api-imports": [
+    "error",
+    {
+        allowedDepthByLayer: {
+            features: 3,
+            ...
+        }
+    }
+]
+```
+
+You can define depth limits for any of the following standard layers:
+
+- `entities`
+- `features`
+- `widgets`
+- `pages`

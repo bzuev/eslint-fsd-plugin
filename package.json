@@ -28,7 +28,7 @@
 		"lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
 		"lint:js": "eslint .",
 		"test": "npm run build:tests && mocha dist-tests/*.test.js",
-		"update:eslint-docs": "npx eslint-doc-generator",
+		"update:eslint-docs": "npm run build && npx eslint-doc-generator",
 		"release": "npm run build && npm version patch && npm publish --access public",
 		"release:minor": "npm run build && npm version minor && npm publish --access public",
 		"release:major": "npm run build && npm version major && npm publish --access public"

@@ -17,15 +17,19 @@ ruleTester.run(
 	{
 		valid: [
 			{
+				name: 'Valid case with alias',
 				code: "import { types } from '@/entities/Article'",
 			},
 			{
+				name: 'Valid case without alias',
 				code: "import { types } from 'entities/Article'",
 			},
 			{
+				name: 'Valid case with relative path',
 				code: "import { types } from '../../Article'",
 			},
 			{
+				name: 'Valid case with testing imports provided in testFilesPatterns',
 				filename: 'D:\\project-name\\src\\entities\\Article\\file.test.ts',
 				code: "import {someFiles} from '@/entities/Article/testing'",
 				options: [
@@ -40,6 +44,7 @@ ruleTester.run(
 				],
 			},
 			{
+				name: 'Valid case with specific imports provided in testFilesPatterns',
 				filename:
 					'D:\\project-name\\src\\entities\\Article\\StoreDecorator.tsx',
 				code: "import {someFiles} from '@/entities/Article/testing'",
@@ -54,52 +59,40 @@ ruleTester.run(
 					},
 				],
 			},
+			{
+				name: 'Valid case with custom depth for layer',
+				filename: 'D:\\project-name\\src\\widgets\\Widget\\Widget.tsx',
+				code: "import {someFiles} from '@/features/Article/ArticleSwitch'",
+				options: [
+					{
+						...aliasOptions,
+						allowedDepthByLayer: { features: 3 },
+					},
+				],
+			},
 		],
 
 		invalid: [
 			{
+				name: 'Invalid case with no public api import (with alias)',
 				code: "import { types } from '@/entities/Article/model/types'",
 				errors: [{ messageId: 'publicApiError' }],
 				options: [aliasOptions],
 				output: "import { types } from '@/entities/Article'",
 			},
 			{
+				name: 'Invalid case with no public api import (no alias)',
 				code: "import { types } from 'entities/Article/model/types'",
 				errors: [{ messageId: 'publicApiError' }],
 				options: [aliasOptions],
 				output: "import { types } from '@/entities/Article'",
 			},
 			{
-				filename:
-					'D:\\project-name\\src\\entities\\Article\\StoreDecorator.tsx',
-				code: "import {someFiles} from '@/entities/Article/testing/file.tsx'",
+				name: 'Invalid case without custom depth for layer',
+				code: "import { types } from '@/features/Article/ArticleSwitch'",
 				errors: [{ messageId: 'publicApiError' }],
-				options: [
-					{
-						alias: '@',
-						testFilesPatterns: [
-							'**/*.test.*',
-							'**/*.stories.*',
-							'**/StoreDecorator.tsx',
-						],
-					},
-				],
-				output: "import {someFiles} from '@/entities/Article'",
-			},
-			{
-				filename: 'D:\\project-name\\src\\entities\\Article\\article.ts',
-				code: "import {someFiles} from '@/entities/Article/testing'",
-				errors: [{ messageId: 'testingPublicApiError' }],
-				options: [
-					{
-						alias: '@',
-						testFilesPatterns: [
-							'**/*.test.*',
-							'**/*.stories.*',
-							'**/StoreDecorator.tsx',
-						],
-					},
-				],
+				options: [{ ...aliasOptions }],
+				output: "import { types } from '@/features/Article'",
 			},
 		],
 	}

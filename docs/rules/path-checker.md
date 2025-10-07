@@ -1,4 +1,4 @@
-# Feature-sliced design relative path checker (`fsd-core/path-checker`)
+# FSD relative path checker (`fsd-core/path-checker`)
 
 🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
@@ -26,22 +26,16 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 ### Options
 
+#### Alias
+
 If you use alias in your imports, then you should pass them as follows:
 
 ```js
-{
-    "rules": {
-        "fsd-core/path-checker": ["error", {alias: '{YOUR ALIAS}'}]
+// rules section
+"fsd-core/path-checker": [
+    "error",
+    {
+        alias: '{YOUR ALIAS} e.g "@"'
     }
-}
-```
-
-Example:
-
-```js
-{
-    "rules": {
-        "fsd-core/path-checker": ["error", {alias: '@'}]
-    }
-}
+]
 ```

@@ -1,57 +1,22 @@
-# Desc (`fsd-core/layer-imports-checker`)
+# FSD layers imports checker (`fsd-core/layer-imports-checker`)
 
 <!-- end auto-generated rule header -->
 
 The layer-imports-checker rule checks imports from other layers and returns an error if files are imported from the overlying layers.
 
-Allowed layers to import from each layer:
+## Layer import hierarchy
 
-#### app layer:
+Each layer can import **only** from the layers below it in the hierarchy.  
+This ensures a clear, maintainable dependency structure and prevents circular imports.
 
-[
-'pages',
-'widgets',
-'features',
-'entities',
-'shared'
-]
-
-#### pages layer:
-
-[
-'widgets',
-'features',
-'entities',
-'shared'
-]
-
-#### widgets layer:
-
-[
-'features',
-'entities',
-'shared'
-]
-
-#### features layer:
-
-[
-'entities',
-'shared'
-]
-
-#### entities layer:
-
-[
-'entities',
-'shared'
-]
-
-#### shared layer:
-
-[
-'shared'
-]
+| Layer           | Allowed imports                                          |
+| --------------- | -------------------------------------------------------- |
+| 🧩 **app**      | `['pages', 'widgets', 'features', 'entities', 'shared']` |
+| 📄 **pages**    | `['widgets', 'features', 'entities', 'shared']`          |
+| 🧱 **widgets**  | `['features', 'entities', 'shared']`                     |
+| ⚙️ **features** | `['entities', 'shared']`                                 |
+| 🧬 **entities** | `['entities', 'shared']`                                 |
+| 🎨 **shared**   | `['shared']`                                             |
 
 ## Rule Details
 
@@ -93,21 +58,34 @@ import { someFiles } from '@/entities/User/file.tsx';
 
 ### Options
 
+#### Alias
+
+If you use alias in your imports, then you should pass them as follows:
+
+```js
+// rules section
+"fsd-core/layer-imports-checker": [
+    "error",
+    {
+        alias: '{YOUR ALIAS} e.g "@"'
+    }
+]
+```
+
+#### IgnoreImportsPatters
+
 If you need to ignore certain import patterns, then you can specify them as follows:
 
 ```js
-{
-    "rules": {
-        "fsd-core/layer-imports-checker": [
-            "error",
-            {
-                ignoreImportsPatters: [
-                    '**/*.test.*',
-                    ...
-                ],
-                alias: '@'
-            }
-        ]
+// rules section
+"fsd-core/layer-imports-checker": [
+    "error",
+    {
+        ignoreImportsPatters: [
+            '**/*.test.*',
+            ...
+        ],
+        alias: '@'
     }
-}
+]
 ```

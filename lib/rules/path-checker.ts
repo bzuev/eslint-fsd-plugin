@@ -20,7 +20,7 @@ export const pathCheckerRule = createRule<
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'feature-sliced design relative path checker',
+			description: 'FSD relative path checker',
 		},
 		fixable: 'code',
 		messages: {

@@ -20,7 +20,7 @@ export const layerImportsCheckerRule = createRule<
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'desc',
+			description: 'FSD layers imports checker',
 		},
 		messages: {
 			notAvailableImport:
