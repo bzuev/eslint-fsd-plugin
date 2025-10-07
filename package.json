@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-fsd-core",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "ESLint rules to enforce clean layer structure and import conventions in Feature-Sliced Design projects.",
 	"keywords": [
 		"eslint",
