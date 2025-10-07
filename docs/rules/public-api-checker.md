@@ -1,4 +1,6 @@
-# Desc (`babun4ek-fsd-plugin/public-api-imports`)
+# Desc (`fsd-core/public-api-checker`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
 <!-- end auto-generated rule header -->
 
@@ -10,17 +12,17 @@ The rule applies only to the following layers: pages, entities, features, widget
 Examples of **incorrect** code for this rule:
 
 ```js
-    import { types } from '@/entities/Article/model/types/article.ts'
+import { types } from '@/entities/Article/model/types/article.ts';
 
-    // The import is NOT made from the public api of the Article layer - this is bad
+// The import is NOT made from the public api of the Article layer - this is bad
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-    import { types } from '@/entities/Article'; 
-    
-    // The import is made from the public api of the Article layer - this is good 
+import { types } from '@/entities/Article';
+
+// The import is made from the public api of the Article layer - this is good
 ```
 
 ### Options
@@ -32,8 +34,8 @@ If you use alias in your imports, then you should pass them as follows:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/public-api-imports": [
-            "error", 
+        "fsd-core/public-api-imports": [
+            "error",
             {
                 alias: '{YOUR ALIAS}'
             }
@@ -47,8 +49,8 @@ Example:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/public-api-imports": [
-            "error", 
+        "fsd-core/public-api-imports": [
+            "error",
             {
                 alias: '@'
             }
@@ -67,8 +69,8 @@ You can transfer patterns as follows:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/public-api-imports": [
-            "error", 
+        "fsd-core/public-api-imports": [
+            "error",
             {
                 testFilesPatterns: [
                     '**/*.test.*',

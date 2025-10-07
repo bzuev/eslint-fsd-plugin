@@ -1,3 +1,8 @@
 /build
 idea
 node_modules
+.vscode
+/.vscode
+*vscode
+dist-tests
+dist

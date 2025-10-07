@@ -1,4 +1,6 @@
-# Feature-sliced design relative path checker (`babun4ek-fsd-plugin/path-checker`)
+# Feature-sliced design relative path checker (`fsd-core/path-checker`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
 <!-- end auto-generated rule header -->
 
@@ -9,17 +11,17 @@ The path-checker rule checks for absolute paths in your project using the FSD me
 Examples of **incorrect** code for this rule:
 
 ```js
-    import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
+import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 
-    // Provided that the import is done inside the Article module
+// Provided that the import is done inside the Article module
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-    import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
-    // Provided that the import is done inside the Article module
+// Provided that the import is done inside the Article module
 ```
 
 ### Options
@@ -29,7 +31,7 @@ If you use alias in your imports, then you should pass them as follows:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '{YOUR ALIAS}'}]
+        "fsd-core/path-checker": ["error", {alias: '{YOUR ALIAS}'}]
     }
 }
 ```
@@ -39,7 +41,7 @@ Example:
 ```js
 {
     "rules": {
-        "babun4ek-fsd-plugin/path-checker": ["error", {alias: '@'}]
+        "fsd-core/path-checker": ["error", {alias: '@'}]
     }
 }
 ```
