@@ -86,8 +86,12 @@ export const publicApiImportsCheckerRule = createRule<
 					context.report({
 						node,
 						messageId: 'publicApiError',
-						fix: fixer =>
-							fixer.replaceText(node.source, `'${alias}/${layer}/${slice}'`),
+						fix: fixer => {
+							const fixedPath = [alias, ...segments.slice(0, maxDepth)].join(
+								'/'
+							);
+							return fixer.replaceText(node.source, `'${fixedPath}'`);
+						},
 					});
 				}
 

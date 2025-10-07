@@ -94,6 +94,18 @@ ruleTester.run(
 				options: [{ ...aliasOptions }],
 				output: "import { types } from '@/features/Article'",
 			},
+			{
+				name: 'Invalid case with custom depth for layer',
+				code: "import { types } from '@/features/Article/ArticleSwitch/types'",
+				errors: [{ messageId: 'publicApiError' }],
+				options: [
+					{
+						...aliasOptions,
+						allowedDepthByLayer: { features: 3 },
+					},
+				],
+				output: "import { types } from '@/features/Article/ArticleSwitch'",
+			},
 		],
 	}
 );
